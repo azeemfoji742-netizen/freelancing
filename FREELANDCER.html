@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancing Career Guide</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs-nav {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background-color: #ecf0f1;
+            border: none;
+            padding: 13px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #34495e;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.25s ease,
+                        color 0.25s ease,
+                        transform 0.25s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #d5dcde;
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .tab-btn:focus-visible {
+            outline: 3px solid #2980b9;
+            outline-offset: 3px;
+        }
+
+        /* Hide inactive sections */
+        .content-section {
+            display: none;
+        }
+
+        /* Show only the selected section */
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        h3.earn-title {
+            color: #e67e22;
+            border-left: 4px solid #e67e22;
+            padding-left: 10px;
+        }
+
+        .define-box {
+            background-color: #f8faf9;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.7;
+            border-radius: 4px;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 13px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        .note {
+            background-color: #fff8e8;
+            border-left: 4px solid #f39c12;
+            padding: 12px 15px;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #604b25;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .tabs-nav {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .tab-btn {
+                font-size: 13px;
+                padding: 12px 6px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚀 Freelancing Career Options Guide</h1>
+
+    <main class="container">
+
+        <!-- Navigation Buttons -->
+        <nav class="tabs-nav" role="tablist"
+             aria-label="Freelancing career options">
+
+            <button type="button"
+                    id="btn-digital-crafts"
+                    class="tab-btn active"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="digital-crafts"
+                    onclick="openTab('digital-crafts', this)">
+                Digital Craft Design
+            </button>
+
+            <button type="button"
+                    id="btn-web-dev"
+                    class="tab-btn"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="web-dev"
+                    onclick="openTab('web-dev', this)">
+                Web Development
+            </button>
+
+            <button type="button"
+                    id="btn-graphic-design"
+                    class="tab-btn"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="graphic-design"
+                    onclick="openTab('graphic-design', this)">
+                Graphic Design
+            </button>
+
+            <button type="button"
+                    id="btn-content-writing"
+                    class="tab-btn"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="content-writing"
+                    onclick="openTab('content-writing', this)">
+                Content Writing
+            </button>
+
+            <button type="button"
+                    id="btn-video-editing"
+                    class="tab-btn"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="video-editing"
+                    onclick="openTab('video-editing', this)">
+                Video Editing
+            </button>
+
+            <button type="button"
+                    id="btn-seo"
+                    class="tab-btn"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="seo"
+                    onclick="openTab('seo', this)">
+                SEO Specialist
+            </button>
+
+        </nav>
+
+        <!-- Option 1: Digital Craft Design -->
+        <section id="digital-crafts"
+                 class="content-section active"
+                 role="tabpanel"
+                 aria-labelledby="btn-digital-crafts">
+
+            <h2>📐 Digital Craft Design and 3D Modeling</h2>
+
+            <div class="define-box">
+                Create digital templates and 3D models for physical
+                products made from cardboard, foam, wood, or other
+                materials. These designs can be used for laser cutting,
+                model making, event decorations, and craft projects.
+            </div>
+
+            <h3>How to Get Started</h3>
+            <ul>
+                <li>
+                    <strong>Learn the Tools:</strong>
+                    Start with CorelDRAW, Adobe Illustrator, Inkscape,
+                    or Tinkercad.
+                </li>
+                <li>
+                    <strong>Practice Design:</strong>
+                    Create name cutouts, cardboard models, decorative
+                    patterns, and simple 3D objects.
+                </li>
+                <li>
+                    <strong>Build a Portfolio:</strong>
+                    Prepare five to ten high-quality sample designs
+                    in formats such as SVG, DXF, and PDF.
+                </li>
+            </ul>
+
+            <h3 class="earn-title">💰 How to Earn</h3>
+            <ul>
+                <li>
+                    <strong>Sell Digital Downloads:</strong>
+                    Sell original cutting templates and craft patterns
+                    through suitable digital marketplaces.
+                </li>
+                <li>
+                    <strong>Offer Freelance Services:</strong>
+                    Create custom laser-cut layouts, cardboard models,
+                    and event decoration templates for clients.
+                </li>
+                <li>
+                    <strong>Work with Local Businesses:</strong>
+                    Contact craft shops, advertising agencies, event
+                    planners, and decoration businesses.
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Best for:</strong>
+                People who enjoy creative design, technical drawing,
+                crafts, and making things.
+            </div>
+        </section>
+
+        <!-- Option 2: Web Development -->
+        <section id="web-dev"
+                 class="content-section"
+                 role="tabpanel"
+                 aria-labelledby="btn-web-dev"
+                 hidden>
+
+            <h2>💻 Web Development</h2>
+
+            <div class="define-box">
+                Build websites, online stores, and web applications
+                for individuals, companies, and businesses around
+                the world.
+            </div>
+
+            <h3>How to Get Started</h3>
+            <ul>
+                <li>
+                    <strong>Learn HTML:</strong>
+                    Understand the structure of web pages.
+                </li>
+                <li>
+                    <strong>Learn CSS:</strong>
+                    Create attractive layouts, colors, and responsive
+                    website designs.
+                </li>
+                <li>
+                    <strong>Learn JavaScript:</strong>
+                    Add interactive features and dynamic functionality.
+                </li>
+                <li>
+                    <strong>Explore Website Platforms:</strong>
+                    Learn WordPress or Shopify to build websites
+                    for clients.
+                </li>
+                <li>
+                    <strong>Build Projects:</strong>
+                    Create a portfolio containing a business website,
+                    a personal portfolio, and an online store demo.
+                </li>
+            </ul>
+
+            <h3 class="earn-title">💰 How to Earn</h3>
+            <ul>
+                <li>
+                    <strong>Client Projects:</strong>
+                    Build websites for businesses, professionals,
+                    online stores, and startups.
+                </li>
+                <li>
+                    <strong>Website Maintenance:</strong>
+                    Earn recurring income by providing updates,
+                    backups, troubleshooting, and technical support.
+                </li>
+                <li>
+                    <strong>Sell Website Templates:</strong>
+                    Create reusable themes, templates, and website
+                    components for digital marketplaces.
+                </li>
+                <li>
+                    <strong>Find Freelance Clients:</strong>
+                    Create a professional profile on platforms such
+                    as Fiverr and Upwork.
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Best for:</strong>
+                People who enjoy computers, logical thinking,
+                problem-solving, and building digital products.
+            </div>
+        </section>
+
+        <!-- Option 3: Graphic Design -->
+        <section id="graphic-design"
+                 class="content-section"
+                 role="tabpanel"
+                 aria-labelledby="btn-graphic-design"
+                 hidden>
+
+            <h2>🎨 Graphic Design</h2>
+
+            <div class="define-box">
+                Communicate ideas visually by designing logos,
+                social media posts, advertisements, banners,
+                book covers, and complete brand identities.
+            </div>
+
+            <h3>How to Get Started</h3>
+            <ul>
+                <li>
+                    <strong>Learn Design Principles:</strong>
+                    Study typography, color theory, alignment,
+                    composition, and visual hierarchy.
+                </li>
+                <li>
+                    <strong>Learn Design Tools:</strong>
+                    Start with Canva, then explore Adobe Photoshop,
+                    Adobe Illustrator, or other suitable tools.
+                </li>
+                <li>
+                    <strong>Choose a Specialization:</strong>
+                    Focus on logo design, social media graphics,
+                    thumbnails, packaging, or book covers.
+                </li>
+                <li>
+                    <strong>Create a Portfolio:</strong>
+                    Design sample projects that demonstrate your
+                    creativity and technical skills.
+                </li>
+            </ul>
+
+            <h3 class="earn-title">💰 How to Earn</h3>
+            <ul>
+                <li>
+                    <strong>Brand Identity Packages:</strong>
+                    Offer logos, business cards, color palettes,
+                    and branded social media templates together.
+                </li>
+                <li>
+                    <strong>Social Media Design:</strong>
+                    Design posts, advertisements, and thumbnails
+                    for businesses and content creators.
+                </li>
+                <li>
+                    <strong>Digital Products:</strong>
+                    Sell original templates, printable designs,
+                    and other digital resources.
+                </li>
+                <li>
+                    <strong>Freelance Projects:</strong>
+                    Find clients through Fiverr, Upwork, and
+                    professional networking.
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Best for:</strong>
+                People who enjoy creativity, visual communication,
+                colors, and artistic work.
+            </div>
+        </section>
+
+        <!-- Option 4: Content Writing -->
+        <section id="content-writing"
+                 class="content-section"
+                 role="tabpanel"
+                 aria-labelledby="btn-content-writing"
+                 hidden>
+
+            <h2>✍️ Content Writing and Copywriting</h2>
+
+            <div class="define-box">
+                Write useful and engaging content for websites,
+                blogs, product descriptions, email campaigns,
+                advertisements, and social media platforms.
+            </div>
+
+            <h3>How to Get Started</h3>
+            <ul>
+                <li>
+                    <strong>Improve Your Writing:</strong>
+                    Practice grammar, sentence structure,
+                    clarity, and organization.
+                </li>
+                <li>
+                    <strong>Read Regularly:</strong>
+                    Read high-quality articles and study how
+                    professional writers communicate ideas.
+                </li>
+                <li>
+                    <strong>Learn Research Skills:</strong>
+                    Verify information and use reliable sources
+                    before writing an article.
+                </li>
+                <li>
+                    <strong>Use AI Responsibly:</strong>
+                    Learn to use AI tools for brainstorming,
+                    outlining, and editing while checking
+                    accuracy and producing original work.
+                </li>
+                <li>
+                    <strong>Create Writing Samples:</strong>
+                    Prepare sample blog posts, product descriptions,
+                    and social media captions.
+                </li>
+            </ul>
+
+            <h3 class="earn-title">💰 How to Earn</h3>
+            <ul>
+                <li>
+                    <strong>Blog and Article Writing:</strong>
+                    Write informative articles for websites,
+                    businesses, and online publications.
+                </li>
+                <li>
+                    <strong>Copywriting:</strong>
+                    Create product descriptions, advertising copy,
+                    landing pages, and marketing emails.
+                </li>
+                <li>
+                    <strong>Social Media Content:</strong>
+                    Write captions, content calendars, and
+                    promotional posts for brands.
+                </li>
+                <li>
+                    <strong>Digital Publishing:</strong>
+                    Write original guides, educational resources,
+                    or e-books and sell them through suitable platforms.
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Best for:</strong>
+                People who enjoy reading, writing, research,
+                communication, and explaining ideas clearly.
+            </div>
+        </section>
+
+        <!-- Option 5: Video Editing -->
+        <section id="video-editing"
+                 class="content-section"
+                 role="tabpanel"
+                 aria-labelledby="btn-video-editing"
+                 hidden>
+
+            <h2>🎬 Video Editing</h2>
+
+            <div class="define-box">
+                Turn raw video footage into polished content by
+                arranging clips, adding transitions, improving
+                audio, creating captions, and applying visual effects.
+                Common projects include YouTube videos, short-form
+                videos, advertisements, and educational content.
+            </div>
+
+            <h3>How to Get Started</h3>
+            <ul>
+                <li>
+                    <strong>Choose an Editing Tool:</strong>
+                    Begin with CapCut or another beginner-friendly
+                    editor. Explore DaVinci Resolve or Adobe Premiere
+                    Pro when your computer can run them comfortably.
+                </li>
+                <li>
+                    <strong>Learn the Fundamentals:</strong>
+                    Practice trimming clips, arranging timelines,
+                    adding captions, balancing audio, and correcting
+                    colors.
+                </li>
+                <li>
+                    <strong>Choose a Niche:</strong>
+                    Focus on YouTube videos, short-form content,
+                    educational videos, or business advertisements.
+                </li>
+                <li>
+                    <strong>Build a Portfolio:</strong>
+                    Create several short editing samples using
+                    footage you own or are licensed to use.
+                </li>
+            </ul>
+
+            <h3 class="earn-title">💰 How to Earn</h3>
+            <ul>
+                <li>
+                    <strong>YouTube Editing:</strong>
+                    Edit videos for creators who need consistent
+                    content production.
+                </li>
+                <li>
+                    <strong>Short-Form Videos:</strong>
+                    Create Reels, Shorts, and TikTok-style videos
+                    for businesses and creators.
+                </li>
+                <li>
+                    <strong>Advertising Videos:</strong>
+                    Edit promotional videos for products, services,
+                    and online stores.
+                </li>
+                <li>
+                    <strong>Monthly Packages:</strong>
+                    Offer recurring editing services to clients
+                    who publish videos regularly.
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Best for:</strong>
+                People who enjoy storytelling, visual effects,
+                music synchronization, and working with video.
+            </div>
+        </section>
+
+        <!-- Option 6: SEO Specialist -->
+        <section id="seo"
+                 class="content-section"
+                 role="tabpanel"
+                 aria-labelledby="btn-seo"
+                 hidden>
+
+            <h2>🔎 Search Engine Optimization (SEO)</h2>
+
+            <div class="define-box">
+                Improve website visibility in search engines by
+                researching relevant keywords, optimizing website
+                content, improving technical performance, and
+                helping search engines understand web pages.
+            </div>
+
+            <h3>How to Get Started</h3>
+            <ul>
+                <li>
+                    <strong>Learn SEO Fundamentals:</strong>
+                    Understand search intent, keywords, page titles,
+                    meta descriptions, headings, and internal links.
+                </li>
+                <li>
+                    <strong>Practice Keyword Research:</strong>
+                    Identify relevant search terms and understand
+                    what people are trying to find.
+                </li>
+                <li>
+                    <strong>Learn SEO Tools:</strong>
+                    Explore Google Search Console, Google Analytics,
+                    and available keyword research tools.
+                </li>
+                <li>
+                    <strong>Understand Technical SEO:</strong>
+                    Learn about website speed, mobile usability,
+                    indexing, sitemaps, and crawlability.
+                </li>
+                <li>
+                    <strong>Build Practical Experience:</strong>
+                    Practice on a personal website or a project
+                    where you have permission to make changes.
+                </li>
+            </ul>
+
+            <h3 class="earn-title">💰 How to Earn</h3>
+            <ul>
+                <li>
+                    <strong>SEO Audits:</strong>
+                    Review websites and identify technical,
+                    content, and optimization issues.
+                </li>
+                <li>
+                    <strong>Keyword Research:</strong>
+                    Prepare keyword lists and content plans
+                    for businesses and website owners.
+                </li>
+                <li>
+                    <strong>On-Page SEO:</strong>
+                    Improve page titles, headings, internal links,
+                    and content structure.
+                </li>
+                <li>
+                    <strong>Monthly SEO Services:</strong>
+                    Provide ongoing optimization, reporting,
+                    and performance monitoring.
+                </li>
+            </ul>
+
+            <div class="note">
+                <strong>Best for:</strong>
+                People who enjoy research, analysis, marketing,
+                problem-solving, and understanding how websites work.
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Switch between career sections
+        function openTab(tabId, clickedButton) {
+            const sections = document.querySelectorAll(".content-section");
+            const buttons = document.querySelectorAll(".tab-btn");
+
+            // Hide all sections
+            sections.forEach(function(section) {
+                section.classList.remove("active");
+                section.hidden = true;
+            });
+
+            // Deactivate all navigation buttons
+            buttons.forEach(function(button) {
+                button.classList.remove("active");
+                button.setAttribute("aria-selected", "false");
+            });
+
+            // Find the selected section and button
+            const selectedSection = document.getElementById(tabId);
+
+            if (!selectedSection || !clickedButton) {
+                return;
+            }
+
+            // Display the selected section
+            selectedSection.hidden = false;
+            selectedSection.classList.add("active");
+
+            // Highlight the selected button
+            clickedButton.classList.add("active");
+            clickedButton.setAttribute("aria-selected", "true");
+        }
+
+        // Initialize the default section when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            const firstButton = document.getElementById(
+                "btn-digital-crafts"
+            );
+
+            openTab("digital-crafts", firstButton);
+        });
+    </script>
+
+</body>
+</html>
